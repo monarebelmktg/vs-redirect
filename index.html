@@ -8,7 +8,7 @@
     const params = new URLSearchParams(window.location.search);
     const email = params.get('email');
     if (email) {
-      const target = "https://app.viralsweep.com/sweeps/full/e77d83-206132?email=" + encodeURIComponent(email);
+      const target = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1?email=" + encodeURIComponent(email);
       document.write(`<meta http-equiv="refresh" content="0;URL='${target}'">`);
     } else {
       document.write("<h2 style='text-align:center;margin-top:20%'>Missing email. Please go back and try again.</h2>");
