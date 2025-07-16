@@ -29,7 +29,7 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const email = params.get('email');
+    const email = params.get('vs_email'); // ✅ NOTE: using vs_email now
 
     if (email) {
       const vsURL = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1&email=" + encodeURIComponent(email);
