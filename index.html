@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <title>Redirecting…</title>
   <script>
+    // Extract email from query params and build redirect URL
     const params = new URLSearchParams(window.location.search);
     const email = params.get('email');
-
     if (email) {
-      // Redirect without using ?framed=1 to avoid iframe-related block
-      window.location.href = "https://app.viralsweep.com/sweeps/full/e77d83-206132?email=" + encodeURIComponent(email);
+      const target = "https://app.viralsweep.com/sweeps/full/e77d83-206132?email=" + encodeURIComponent(email);
+      document.write(`<meta http-equiv="refresh" content="0;URL='${target}'">`);
     } else {
-      document.body.innerHTML = "<h2 style='text-align:center;margin-top:20%'>Missing email. Please go back and try again.</h2>";
+      document.write("<h2 style='text-align:center;margin-top:20%'>Missing email. Please go back and try again.</h2>");
     }
   </script>
 </head>
