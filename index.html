@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    if (email) {
+      window.location.href = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1?vs_email=" + encodeURIComponent(email);
+    } else {
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:20%'>Missing email. Go back and try again.</h2>";
+    }
+  </script>
+</head>
+<body>
+  <h2 style="text-align:center;margin-top:20%">Redirecting…</h2>
+</body>
+</html>
