@@ -2,20 +2,45 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Redirecting…</title>
-  <script>
-    // Extract email from query params and build redirect URL
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get('email');
-    if (email) {
-      const target = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1?email=" + encodeURIComponent(email);
-      document.write(`<meta http-equiv="refresh" content="0;URL='${target}'">`);
-    } else {
-      document.write("<h2 style='text-align:center;margin-top:20%'>Missing email. Please go back and try again.</h2>");
+  <title>Continue to Your Spin</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 20%;
+      background-color: #f7f7f7;
     }
-  </script>
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h2 style="text-align:center;margin-top:20%">Redirecting…</h2>
+  <h2>You're almost there!</h2>
+  <p>Click the button below to confirm your entry and spin the wheel.</p>
+  <div id="button-container"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+
+    if (email) {
+      const vsURL = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1&email=" + encodeURIComponent(email);
+      const button = document.createElement("a");
+      button.href = vsURL;
+      button.className = "btn";
+      button.textContent = "Spin the Wheel";
+      document.getElementById("button-container").appendChild(button);
+    } else {
+      document.getElementById("button-container").innerHTML = "<p style='color:red;'>Missing email. Please go back and try again.</p>";
+    }
+  </script>
 </body>
 </html>
