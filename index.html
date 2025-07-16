@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <title>Redirecting…</title>
   <script>
+    // Get the email from the URL query string
     const params = new URLSearchParams(window.location.search);
     const email = params.get('email');
+
     if (email) {
-      window.location.href = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1?vs_email=" + encodeURIComponent(email);
+      // Redirect to ViralSweep with email prefilled
+      window.location.href = "https://app.viralsweep.com/sweeps/full/e77d83-206132?framed=1&email=" + encodeURIComponent(email);
     } else {
-      document.body.innerHTML = "<h2 style='text-align:center;margin-top:20%'>Missing email. Go back and try again.</h2>";
+      // If email is missing, show an error message
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:20%'>Missing email. Please go back and try again.</h2>";
     }
   </script>
 </head>
